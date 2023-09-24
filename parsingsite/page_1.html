@@ -1,0 +1,87 @@
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Законность парсинга</title>
+    <link rel="stylesheet" href="vanilla-framework/css/vanilla-framework.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Горизонтальное меню -->
+    <nav class="vf-horizontal-navigation">
+      <a href="index.html">Главная</a>
+      <a href="parsing.html">Парсинг</a>
+      <a href="protection.html">Защита</a>
+      <a href="page_1.html">Законность парсинга</a>
+      <a href="page_2.html">Виды парсинга</a>
+      <a href="page_3.html">ПО для парсинга</a>
+    </nav>
+    <main>
+      <h1>Законен ли парсинг?</h1>
+      <p>Здесь в скором появится какой-то текст</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/5705/5705272.png" alt="Изображение">
+    </main>
+    <!-- Левый сайдбар -->
+    <aside class="vf-sidebar-left">
+      <h3>Навигация</h3>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="parsing.html">Парсинг</a></li>
+        <li><a href="protection.html">Защита от парсинга</a></li>
+        <li><a href="page_1.html">Законность парсинга</a></li>
+        <li><a href="page_2.html">Виды парсинга</a></li>
+        <li><a href="page_3.html">ПО для парсинга</a></li>
+      </ul>
+    </aside>
+    <!-- Подвал -->
+    <footer>
+      <img src="https://w7.pngwing.com/pngs/667/779/png-transparent-ukraine-flag-heart-country-nation-europe-ukrainian-flag-symbol.png" alt="Описание изображения" class="footer-image">
+      <p>© 2023 Stand with Ukraine</p>
+    </footer>
+    <script src="vanilla-framework/js/vanilla-framework.min.js"></script>
+  </body>
+</html>
+
+
+<div class="vf-pagination">
+  <a href="#" class="vf-pagination__item vf-pagination__item-first">Первая</a>
+  <a href="#" class="vf-pagination__item vf-pagination__item-prev">Предыдущая</a>
+  <a href="#" class="vf-pagination__item">1</a>
+  <a href="#" class="vf-pagination__item">2</a>
+  <a href="#" class="vf-pagination__item vf-pagination__item-active">3</a>
+  <a href="#" class="vf-pagination__item">4</a>
+  <a href="#" class="vf-pagination__item vf-pagination__item-next">Следующая</a>
+  <a href="#" class="vf-pagination__item vf-pagination__item-last">Последняя</a>
+</div>
+
+
+.vf-pagination {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.vf-pagination__item {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 16px;
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.vf-pagination__item-active {
+  background-color: #333;
+  color: #fff;
+}
+
+.vf-pagination__item-first,
+.vf-pagination__item-prev,
+.vf-pagination__item-next,
+.vf-pagination__item-last {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}

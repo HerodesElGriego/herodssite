@@ -1,0 +1,178 @@
+@import 'settings';
+
+@mixin vf-p-tabs {
+  .p-tabs {
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+
+    &__list {
+      @extend %vf-pseudo-border--bottom;
+
+      display: flex;
+      margin: 0 auto $spv--x-large;
+      overflow-x: auto;
+      padding: 0;
+      position: relative;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    &__item {
+      margin: 0;
+      padding: 0;
+      width: auto;
+
+      &:last-child {
+        margin-right: $sp-xxx-large;
+      }
+    }
+
+    &__link {
+      @extend %vf-button-base;
+      @include vf-button-pattern(
+        $button-border-color: $color-transparent,
+        $button-hover-border-color: $color-transparent,
+        $button-active-border-color: $color-transparent,
+        $button-disabled-border-color: $color-transparent
+      );
+      @include vf-highlight-bar(transparent, bottom, false);
+
+      align-items: center;
+      border: none;
+      display: flex;
+      gap: $sph--small;
+      height: 100%;
+      line-height: map-get($line-heights, default-text);
+      margin-bottom: 0;
+      padding: $spv--medium $sph--large;
+      position: relative;
+
+      &::before {
+        @extend %vf-pseudo-border;
+
+        bottom: 0;
+        z-index: 1;
+      }
+
+      // make sure tab strip border doesn't overlap focus outline
+      &:focus {
+        z-index: 1;
+
+        &::before,
+        &::after {
+          content: none;
+        }
+      }
+
+      &:active,
+      &[aria-selected='true'] {
+        // Hide the highlight when focussing (in combination with the parent
+        // states) in browsers that don't support focus-visible.
+        &:focus::before,
+        &:focus::after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  // Theming
+  @if ($theme-default-p-tabs == 'dark') {
+    .p-tabs {
+      @include vf-p-tabs-dark-theme;
+    }
+
+    .p-tabs.is-light {
+      @include vf-p-tabs-light-theme;
+    }
+  } @else {
+    .p-tabs {
+      @include vf-p-tabs-light-theme;
+    }
+
+    .p-tabs.is-dark {
+      @include vf-p-tabs-dark-theme;
+    }
+  }
+}
+
+@mixin vf-p-tabs-theme($color-tabs-text, $color-tabs-border, $color-tabs-highlight-hover) {
+  color: $color-tabs-text;
+  .p-tabs {
+    &__list::after {
+      background-color: $color-tabs-border;
+    }
+
+    &__link {
+      background-color: transparent;
+
+      color: $color-tabs-text;
+      @include vf-highlight-bar(transparent, bottom, false);
+
+      // Display the highlight when focussing in modern browsers that support
+      // focus-visible.
+      &:focus:not(:focus-visible) {
+        @include vf-highlight-bar($color-tabs-text, bottom, false);
+      }
+
+      &:hover {
+        @include vf-highlight-bar($color-tabs-highlight-hover, bottom, false);
+
+        &::before,
+        &:focus:not(:focus-visible)::before {
+          bottom: 1px;
+          height: calc($bar-thickness - 1px);
+        }
+
+        // Display the highlight when focussing (in combination with the parent
+        // states) in modern browsers that support focus-visible.
+        &:focus:not(:focus-visible) {
+          @include vf-highlight-bar($color-tabs-highlight-hover, bottom, false);
+        }
+
+        // Hide the highlight when focussing (in combination with the parent
+        // states) in browsers that don't support focus-visible.
+        &:focus::before,
+        &:focus::after {
+          content: none;
+        }
+      }
+
+      &:active,
+      &[aria-selected='true'] {
+        @include vf-highlight-bar($color-tabs-text, bottom, false);
+
+        // Display the highlight when focussing (in combination with the parent
+        // states) in modern browsers that support focus-visible.
+        &:focus:not(:focus-visible) {
+          @include vf-highlight-bar($color-tabs-text, bottom, false);
+        }
+
+        // Hide the highlight when focussing (in combination with the parent
+        // states) in browsers that don't support focus-visible.
+        &:focus::before,
+        &:focus::after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin vf-p-tabs-light-theme {
+  @include vf-p-tabs-theme(
+    $color-tabs-text: $colors--light-theme--text-default,
+    $color-tabs-border: $colors--light-theme--border-default,
+    $color-tabs-highlight-hover: $colors--light-theme--border-default
+  );
+}
+
+@mixin vf-p-tabs-dark-theme {
+  @include vf-p-tabs-theme(
+    $color-tabs-text: $colors--dark-theme--text-default,
+    $color-tabs-border: $colors--dark-theme--border-default,
+    $color-tabs-highlight-hover: $colors--dark-theme--border-default
+  );
+}

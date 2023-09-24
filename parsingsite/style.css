@@ -1,0 +1,179 @@
+body {
+  background-color: #f2f5fa;
+}
+
+body, input, select, textarea {
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+a {
+  color: #13688d;
+}
+
+.button, .input[type="submit"] {
+  background-color: #13688d;
+  color: #fff;
+  border: none;
+}
+
+.page-header {
+  background-color: #fff;
+  color: #333;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.page-footer {
+  background-color: #333;
+  color: #fff;
+}
+
+.form-input {
+  background-color: #f8f8f8;
+  color: #333;
+  border: 1px solid #ebebeb;
+}
+
+.form-invalid {
+  border-color: #d00;
+}
+
+.form-error-message {
+  color: #d00;
+}
+
+.form-success-message {
+  color: #0a0;
+}
+
+.table {
+  border: 1px solid #ebebeb;
+}
+
+.table-header, .table-row {
+  background-color: #f2f5fa;
+}
+
+.table-row:nth-child(2n) {
+  background-color: #e6eaf2;
+}
+
+.table-cell {
+  color: #333;
+}
+
+
+
+.container {
+    width: 80%; /* можно выбрать любую ширину, которая соответствует вашему дизайну */
+    margin: 0 auto; /* автоматически задает отступы слева и справа */
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Задаем минимальную высоту 100vh, чтобы контент был на всю высоту окна */
+}
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-image {
+  width: auto;
+  height: calc(1.2 * 1em); /* Задайте высоту изображения немного больше шрифта подвала */
+  vertical-align: middle; /* Выравнивание изображения по вертикали по центру текста в подвале */
+  margin-right: 0.5em; /* Определите правый отступ для изображения */
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.previous, .next {
+  font-size: 1.1em;
+}
+
+
+.sidebar {
+  width: 30%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.sidebar-right {
+  width: 30%;
+  border: 2px solid;
+  border-image: linear-gradient(to top, yellow, blue) 1;
+  position: sticky;
+  bottom: 0;
+}
+
+.sidebar-left {
+  width: 30%;
+  padding-left: 2%;
+  box-sizing: border-box;
+}
+
+.content {
+  flex: 1;
+  padding-right: 2%;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* изменено с flex-end на flex-start */
+  width: 65%;
+  padding-right: 2%;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1, h2, h3 {
+    font-size: 36px;
+  }
+}
