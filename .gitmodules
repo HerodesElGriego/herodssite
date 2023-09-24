@@ -1,0 +1,3 @@
+[submodule "herodssite"]
+	path = herodssite
+	url = https://github.com/HerodesElGriego/herodssite.git
